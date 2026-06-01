@@ -5,7 +5,7 @@ Serviço estático de verificação de permissão por estabelecimento. Determina
 ## Language
 
 **PV**:
-Identificador numérico Long de um estabelecimento comercial na rede Redecard.
+Identificador numérico Long de um estabelecimento comercial.
 _Avoid_: estabelecimento, merchant, client, loja
 
 **Allow-List**:

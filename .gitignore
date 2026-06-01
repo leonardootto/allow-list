@@ -1,0 +1,8 @@
+.gradle/
+build/
+*.class
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# benchmark and k6 results (recreated by run.sh)
+results/

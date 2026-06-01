@@ -107,6 +107,6 @@ Os resultados dos dois testes são automaticamente injetados em uma apresentaç�
 ## Further Notes
 
 - Três ADRs documentam as decisões chave: `docs/adr/0001` (fastutil), `docs/adr/0002` (JSON no classpath), `docs/adr/0003` (Carregamento Eager).
-- Escala esperada na Rede: ~2M PVs totais distribuídos em até 20 allow-lists de 500k entradas.
+- Escala esperada: ~2M PVs totais distribuídos em até 20 allow-lists de 500k entradas.
 - SLA de 20ms p99 é o benchmark da indústria para serviços internos de lookup in-memory via HTTP.
 - A nota metodológica 70/30 deve aparecer explicitamente na apresentação para antecipar questionamentos sobre o padrão de acesso usado nos testes.

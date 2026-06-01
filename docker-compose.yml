@@ -1,0 +1,27 @@
+services:
+  app:
+    build: .
+    networks:
+      - allow-list-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8080/actuator/health || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 30s
+
+  k6:
+    image: grafana/k6:latest
+    command: run /scripts/script.js
+    volumes:
+      - ./k6:/scripts
+      - ./results:/results
+    depends_on:
+      app:
+        condition: service_healthy
+    networks:
+      - allow-list-net
+
+networks:
+  allow-list-net:
+    driver: bridge

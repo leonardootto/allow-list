@@ -1,0 +1,3 @@
+# only the pre-built JAR is needed; exclude everything else
+*
+!build/libs/*.jar
