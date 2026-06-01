@@ -13,6 +13,11 @@ if ! java -version &>/dev/null 2>&1; then
   fi
 fi
 
+if ! command -v kotlin &>/dev/null; then
+  echo "Error: 'kotlin' not found. Install Kotlin SDK." >&2
+  exit 1
+fi
+
 # gradlew eval-expands empty JAVA_OPTS/GRADLE_OPTS into bare empty-string args
 # that Java misreads as the main class — prevent by exporting them as truly empty.
 export JAVA_OPTS="${JAVA_OPTS-}"
@@ -20,16 +25,12 @@ export GRADLE_OPTS="${GRADLE_OPTS-}"
 GRADLE="./gradlew"
 
 echo "=== [1/5] Benchmark local (CPU-only) ==="
-if ! command -v kotlin &>/dev/null; then
-  echo "Warning: 'kotlin' not found — skipping benchmark. Install Kotlin SDK to enable."
-else
-  mkdir -p results
-  kotlin benchmark/allowlist-benchmark.main.kts
-fi
+mkdir -p results
+kotlin benchmark/allowlist-benchmark.main.kts
 
 echo ""
 echo "=== [2/5] Gerando dados de teste (20 × 500k PVs) ==="
-python3 scripts/generate_test_data.py
+kotlin scripts/generate_test_data.main.kts
 
 echo ""
 echo "=== [3/5] Build do JAR ==="
@@ -43,7 +44,7 @@ docker compose down --remove-orphans
 
 echo ""
 echo "=== [5/5] Atualizando apresentação ==="
-python3 scripts/update_presentation.py
+kotlin scripts/update_presentation.main.kts
 
 echo ""
 echo "Concluído! Abra presentation/index.html no navegador."

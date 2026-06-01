@@ -41,7 +41,7 @@ SLA target: p99 < 20 ms. Result: **PASSED**.
 
 ## Running
 
-Requires Java 21, Docker, and Python 3.
+Requires Java 21, Kotlin CLI, and Docker.
 
 ```bash
 ./run.sh

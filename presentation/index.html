@@ -617,27 +617,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.js"></script>
 <script>
 // RESULTS_START
-const RESULTS = {
-  "benchmark": {
-    "p50_us": 0.016,
-    "p75_us": 0.017,
-    "p90_us": 0.019,
-    "p95_us": 0.021,
-    "p99_us": 0.085,
-    "max_us": 0.131,
-    "throughput_ops_sec": 56441053,
-    "memory_mb": 16.05,
-    "memory_hashset_mb": 62.51
-  },
-  "k6": {
-    "p50_ms": 2.322715,
-    "p95_ms": 5.478016,
-    "p99_ms": 8.586214839999998,
-    "error_rate": 0,
-    "requests_total": 5348849,
-    "rps": 32417.24862027906
-  }
-};
+const RESULTS = {"benchmark": {
+  "p50_us": 0.016,
+  "p75_us": 0.017,
+  "p90_us": 0.019,
+  "p95_us": 0.021,
+  "p99_us": 0.085,
+  "max_us": 0.131,
+  "throughput_ops_sec": 56441053,
+  "memory_mb": 16.05,
+  "memory_hashset_mb": 62.51
+}, "k6": {
+  "p50_ms": 2.322715,
+  "p95_ms": 5.478016,
+  "p99_ms": 8.586214839999998,
+  "error_rate": 0,
+  "requests_total": 5348849,
+  "rps": 32417.24862027906
+}};
 // RESULTS_END
 
 Reveal.initialize({ hash: true, transition: 'slide', progress: true, slideNumber: 'c/t' });
